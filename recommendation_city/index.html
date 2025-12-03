@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일본 여행지 추천 테스트 - Flying Japan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">Flying Japan</div>
+        </header>
+
+        <main>
+            <!-- Landing Section -->
+            <section id="landing-page" class="active">
+                <div class="landing-content">
+                    <h1>나에게 딱 맞는<br>일본 여행지는?</h1>
+                    <p class="subtitle">간단한 테스트로 알아보는<br>나만의 맞춤 여행지 추천</p>
+                    <button id="start-btn" class="primary-btn">테스트 시작하기</button>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz-page" class="hidden">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div id="quiz-content">
+                    <div class="question-container">
+                        <span class="question-number">Q<span id="q-num">1</span></span>
+                        <h2 id="question-text">질문 내용이 여기에 들어갑니다.</h2>
+                    </div>
+                    <div class="options-container" id="options-container">
+                        <!-- Options will be injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Result Section -->
+            <section id="result-page" class="hidden">
+                <div class="result-content">
+                    <p class="result-intro">당신에게 추천하는 여행지는</p>
+                    <h1 id="result-name">여행지 이름</h1>
+                    <p id="result-title" class="result-title">한줄 요약</p>
+
+                    <div class="tags-container" id="result-tags">
+                        <!-- Tags injected here -->
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+
+                    <div class="result-details">
+                        <h3>이런 당신에게 딱!</h3>
+                        <ul id="result-features">
+                            <!-- Features injected here -->
+                        </ul>
+
+                        <h3>추천 이유</h3>
+                        <p id="result-reason">이유 설명</p>
+                    </div>
+
+                    <a href="#" id="result-link" class="result-link-btn" target="_blank">맛집 & 교통패스 정보 보러가기</a>
+
+                    <button id="restart-btn" class="secondary-btn">다시 테스트하기</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Flying Japan. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

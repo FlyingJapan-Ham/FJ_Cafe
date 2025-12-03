@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일본 교통패스 추천 - Flying Japan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">Flying Japan</div>
+        </header>
+
+        <main>
+            <!-- Region Selection Section -->
+            <section id="region-page" class="active">
+                <div class="landing-content">
+                    <h1>일본 여행,<br>어디로 떠나시나요?</h1>
+                    <p class="subtitle">여행할 지역을 선택하면<br>딱 맞는 교통패스를 추천해드려요.</p>
+                    <div class="region-grid">
+                        <button class="region-btn" data-region="osaka">오사카</button>
+                        <button class="region-btn" data-region="fukuoka">후쿠오카</button>
+                        <button class="region-btn" data-region="tokyo">도쿄</button>
+                        <button class="region-btn" data-region="sapporo">삿포로</button>
+                        <button class="region-btn" data-region="okinawa">오키나와</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Intro Section (Dynamic based on region) -->
+            <section id="intro-page" class="hidden">
+                <div class="landing-content">
+                    <h1 id="intro-title">오사카 여행 스타일을<br>알려주세요</h1>
+                    <p class="subtitle">맞춤 교통패스를 추천해드릴게요.</p>
+                    <button id="start-quiz-btn" class="primary-btn">시작하기</button>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz-page" class="hidden">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div id="quiz-content">
+                    <div class="question-container">
+                        <span class="question-number">Q<span id="q-num">1</span></span>
+                        <h2 id="question-text">질문 내용</h2>
+                    </div>
+                    <div class="options-container" id="options-container">
+                        <!-- Options injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Result Section -->
+            <section id="result-page" class="hidden">
+                <div class="result-content">
+                    <p class="result-intro">당신에게 추천하는 패스는</p>
+                    <h1 id="result-name">패스 이름</h1>
+                    <p id="result-title" class="result-title">한줄 요약</p>
+
+                    <div class="result-details">
+                        <p id="result-desc">설명</p>
+
+                        <div id="result-route-container" class="hidden">
+                            <h3>추천 루트</h3>
+                            <p id="result-route">루트 내용</p>
+                        </div>
+
+                        <!-- Extra Info (e.g. Rent-a-car advice) -->
+                        <div id="extra-info" class="hidden">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+
+                    <a href="#" id="result-link" class="result-link-btn" target="_blank">패스 정보 & 추천 일정 보기</a>
+
+                    <div class="action-buttons">
+                        <button id="restart-btn" class="secondary-btn">다시 테스트하기</button>
+                        <button id="home-btn" class="secondary-btn">다른 지역 선택하기</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Flying Japan. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
