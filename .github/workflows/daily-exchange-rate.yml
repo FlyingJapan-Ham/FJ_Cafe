@@ -1,0 +1,39 @@
+name: Daily Exchange Rate Post
+
+on:
+  schedule:
+    # 매일 한국 시간 오전 9시 (UTC 0시)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  post-exchange-rate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        cd Currencexchangerate
+        pip install -r requirements.txt
+    
+    - name: Create .env file
+      run: |
+        cd Currencexchangerate
+        echo "ACCESS_TOKEN=${{ secrets.NAVER_ACCESS_TOKEN }}" >> .env
+        echo "CLUBID=${{ secrets.NAVER_CLUBID }}" >> .env
+        echo "MENUID=${{ secrets.NAVER_MENUID }}" >> .env
+        echo "CLIENT_ID=${{ secrets.NAVER_CLIENT_ID }}" >> .env
+        echo "CLIENT_SECRET=${{ secrets.NAVER_CLIENT_SECRET }}" >> .env
+    
+    - name: Run exchange rate posting
+      run: |
+        cd Currencexchangerate
+        python3 main.py
